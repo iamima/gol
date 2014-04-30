@@ -50,6 +50,22 @@ under terms of ISC license</p>
 ) Cache
 </code></pre>
 
+<p>создаваемый объект реализует интерфейс:</p>
+
+<pre><code>Cache interface {                 
+        GetBucketsStat() (countitem uint64, countbucket uint32, stat [][2]int) // получить информацию по структуре кеша(кол-во бакетов) и статистику распределения записей.
+        Get(string) interface{}          // получить запись
+        Set(string, interface{}) bool    // записать в кеш
+        Del(string) (val interface{})    // удалить из кеша
+        Inc(string, float64) interface{} // инкремент/декремент значения  
+        Save(io.Writer) error            // сохранить в писателя
+        SaveFile(string) error           // сохранить в файл 
+        Load(io.Reader) error            // загрузить из читателя
+        LoadFile(string) error           // загрузить из файла
+        Len() I_counter                  // объект реализующий счётчик для возможного лимитирования кол-ва принимаемых записей
+    }
+</code></pre>
+
 <p>Hash functions library</p>
       </section>
       <footer>
