@@ -99,6 +99,23 @@ type OpenErr struct {
 
 <pre><code>func Panic(e error)
 </code></pre>
+
+<h3>
+<a name="genid" class="anchor" href="#genid"><span class="octicon octicon-link"></span></a>genid</h3>
+
+<p>Пакет создан для генерации session id, подсмотрено в gorilla session, генерируется случайная строка 
+заданной длины и кодируется в base64.URLEncoding.    </p>
+
+<p>Создаём генератор, максимальная длина генерируемой строки 64 ascii символа</p>
+
+<pre><code>func NewHTTPGen(length uint8) HTTPGenID
+</code></pre>
+
+<p>генерируем рандомный id</p>
+
+<pre><code>// generate random strind http compatible
+func (t HTTPGenID) NewID() string {
+</code></pre>
       </section>
       <footer>
         <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
