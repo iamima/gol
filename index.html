@@ -33,20 +33,24 @@
         <h3>
 <a name="about-gol" class="anchor" href="#about-gol"><span class="octicon octicon-link"></span></a>About GoL</h3>
 
-<p>Go Library (GoL) - набор пакетов языка программирования Go</p>
+<p>Go Library (GoL) - набор пакетов языка программирования Go
+under terms of ISC license</p>
 
 <h3>
 <a name="cashe" class="anchor" href="#cashe"><span class="octicon octicon-link"></span></a>cashe</h3>
 
-<p>Пакет представляет собой реализацию потокобезопасной хеш таблицы типа <code>map[string]interface{}</code> котрая и является in-memory хранилищем кеша. </p>
+<p>Пакет представляет собой реализацию потокобезопасной хеш таблицы типа <code>map[string]interface{}</code> котрая и является in-memory хранилищем кеша.</p>
 
 <pre><code>cashe.New(
-    hash func([]byte) uint32,
-    init_bucketscount int,
-    ifreadthenlive bool,
-    duration time.Duration,
-    callback func(key *string, val *interface{})) Cache
+    hash func([]byte) uint32,   // хеш функция
+    init_bucketscount int,      // первоначальное ко-во элементов таблицы
+    ifreadthenlive bool,        // продлевать время жизни элемента при обращении к нему
+    duration time.Duration,     // гарантированное время жизни элемента
+    callback func(key *string, val *interface{}) // фцнкция выполняемая при удалении элемента по причине истечения срока его жизни в кеше
+) Cache
 </code></pre>
+
+<p>Hash functions library</p>
       </section>
       <footer>
         <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
