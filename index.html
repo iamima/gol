@@ -86,16 +86,16 @@ under terms of ISC license</p>
 <h3>
 <a name="err" class="anchor" href="#err"><span class="octicon octicon-link"></span></a>err</h3>
 
-<p>Пакет предоставляет реализацию объекта интерфейса <code>error</code> который обладает публичным свойством текста ошибки что позволяет редактировать текст сообщения уже сгенерированной ошибки. 
-// editable error struct</p>
+<p>Пакет предоставляет реализацию объекта интерфейса <code>error</code> который обладает публичным свойством текста ошибки что позволяет редактировать текст сообщения уже сгенерированной ошибки. </p>
 
-<pre><code>type OpenErr struct {
+<pre><code>// editable error struct
+type OpenErr struct {
     Text string
     Code int
 }
 </code></pre>
 
-<p>И удобную функцию генерации исключения на основе ошибки.</p>
+<p>И удобную функцию, синтаксический сахар, генерации исключения на основе ошибки.</p>
 
 <pre><code>func Panic(e error)
 </code></pre>
